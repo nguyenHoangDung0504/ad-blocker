@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>AD blocker</title>
+    <link rel="stylesheet" href="styles/popup.css">
+    <script type="module" src="src/popup/index.js"></script>
+</head>
+
+<body>
+    <div class="left">
+        <h3>Black list hiện tại</h3>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Nhập từ khóa rồi ấn nút mũi tên để tìm...">
+            <button id="prev-search">◀</button>
+            <button id="next-search">▶</button>
+        </div>
+
+        <p style="color: green; line-height: 1.5; font-weight: 600;">*Ấn các nút mũi tên lần đầu thường không thấy gì
+            xảy ra, ấn 2 lần là được.</p><br><br>
+
+        <textarea id="black-list" rows="15"></textarea>
+    </div>
+
+    <div class="right">
+        <details id="script-cross-origin" class="suggestions" open>
+            <summary count="0">Resource khác origin</summary>
+
+            <div class="suggestion-container scripts-details">
+                <details open>
+                    <summary count="0">Scripts</summary>
+                    <div class="links">
+                        <!--
+                            <div class="link-container">
+                                <a type="text" contenteditable spellcheck="false">https://cdn.oaistatic.com/assets</a>
+                                <button class="block"></button> (class=unblock)
+                            </div>
+                        -->
+                    </div>
+                </details>
+            </div>
+
+            <div class="suggestion-container media-details">
+                <details>
+                    <summary count="0">Media/Iframes resources</summary>
+                    <div class="links"></div>
+                </details>
+            </div>
+
+            <div class="suggestion-container anchors-details">
+                <details>
+                    <summary count="0">Anchors</summary>
+                    <div class="links"></div>
+                </details>
+            </div>
+        </details>
+
+        <details id="script-same-origin" class="suggestions">
+            <summary count="0">Resource cùng origin</summary>
+
+            <div class="suggestion-container scripts-details">
+                <details>
+                    <summary count="0">Scripts</summary>
+                    <div class="links"></div>
+                </details>
+            </div>
+
+            <div class="suggestion-container media-details">
+                <details>
+                    <summary count="0">Media/Iframes resources</summary>
+                    <div class="links"></div>
+                </details>
+            </div>
+
+            <div class="suggestion-container anchors-details">
+                <details>
+                    <summary count="0">Anchors</summary>
+                    <div class="links"></div>
+                </details>
+            </div>
+        </details>
+
+        <button id="scan" class="action-button">Ấn để quét lại</button>
+    </div>
+    <!-- <script src="src/popup.js"></script> -->
+</body>
+
+</html>

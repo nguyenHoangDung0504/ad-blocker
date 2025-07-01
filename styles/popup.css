@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    width: 780px;
+    height: fit-content;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.left,
+.right {
+    padding: 5px;
+    box-shadow: 1px 1px 2px gray;
+    height: fit-content;
+    overflow: auto;
+    flex-grow: 1;
+}
+
+.left {
+    width: 40%;
+    height: 100%;
+    resize: horizontal;
+}
+
+.right {
+    width: 60%;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+#black-list {
+    width: 100%;
+    min-height: 75%;
+    max-height: 800px;
+    font-family: monospace;
+    resize: none;
+    line-height: 1.75;
+    padding: 4px;
+    margin-bottom: 5px;
+}
+
+.suggestions {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: .5px solid gray;
+}
+
+.suggestions>summary {
+    cursor: pointer;
+    padding: 5px;
+    user-select: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-bottom: 1px solid gray;
+}
+
+.suggestions summary::after {
+    content: " (" attr(count) ")";
+}
+
+.suggestions[open]>summary {
+    margin-bottom: 5px;
+}
+
+.suggestion-container {
+    padding: 5px;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 2.5px black;
+}
+
+.suggestion-container>details {
+    margin-top: 2px;
+    padding: 2px;
+    line-height: 1.5;
+}
+
+.suggestion-container>details[open]>summary {
+    margin-bottom: 5px;
+}
+
+.suggestion-container>details>summary {
+    cursor: pointer;
+    user-select: none;
+}
+
+.suggestion-container>details>.links {
+    padding: 2px;
+    line-height: 1.5;
+    background-color: white;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestion-container>details>.links>.link-container {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+    align-items: flex-end;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.suggestion-container>details>.links>.link-container>a {
+    text-decoration: none;
+    display: block;
+    color: black;
+    border-left: 5px solid #333;
+    max-width: 100%;
+    word-break: break-all;
+    flex: 8;
+    padding: 4px;
+    text-align: justify;
+    min-height: 100%;
+}
+
+.suggestion-container>details>.links>.link-container>button {
+    display: block;
+    flex: 2;
+    height: fit-content;
+    min-height: 100%;
+    padding: 2px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.suggestion-container>details>.links>.link-container>button.block {
+    background-color: rgba(0, 255, 0, .4);
+}
+
+.suggestion-container>details>.links>.link-container>button.block::after {
+    content: "Chặn";
+}
+
+.suggestion-container>details>.links>.link-container>button.unblock {
+    background-color: rgba(255, 0, 0, .4);
+}
+
+.suggestion-container>details>.links>.link-container>button.unblock::after {
+    content: "Bỏ Chặn";
+}
+
+.suggestion-container>details>.links:empty {
+    display: none;
+}
+
+.suggestion {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.suggestion>input {
+    display: block;
+    flex: 1;
+    padding: 4px;
+}
+
+.suggestion>button {
+    flex: .2;
+}
+
+button {
+    cursor: pointer;
+    padding: 4px;
+}
+
+.search-container {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.search-container>#search-input {
+    padding: 4px;
+    flex: 1;
+}
+
+.action-button {
+    margin-left: 50%;
+    transform: translateX(-50%);
+}

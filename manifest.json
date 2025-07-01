@@ -1,0 +1,45 @@
+{
+    "manifest_version": 3,
+    "name": "MTD Ads Blocker",
+    "version": "1.0",
+    "description": "Chặn các request quảng cáo bằng cách tự thiết lập rule",
+    "permissions": [
+        "declarativeNetRequest",
+        "declarativeNetRequestWithHostAccess",
+        "storage",
+        "unlimitedStorage",
+        "scripting",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "resources/*"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content/index.js"
+            ],
+            "run_at": "document_start"
+        }
+    ]
+}
