@@ -16,7 +16,7 @@
 		'coccoc.com',
 	];
 
-	// Ghi đè window.open
+	// Overwrite window.open
 	const _open = window.open;
 	lockFn(window, 'open', function (url, ...args) {
 		if (!userInitiated() || isExternalURL(url)) {
@@ -25,7 +25,7 @@
 		return _open.call(this, url, ...args);
 	});
 
-	// Ghi đè a.click()
+	// Overwrite a.click()
 	const _click = HTMLElement.prototype.click;
 	lockFn(HTMLElement.prototype, 'click', function (...args) {
 		if (
@@ -40,7 +40,7 @@
 		return _click.call(this, ...args);
 	});
 
-	// Ghi đè form.submit()
+	// Overwrite form.submit()
 	const _submit = HTMLFormElement.prototype.submit;
 	lockFn(HTMLFormElement.prototype, 'submit', function (...args) {
 		const action = this.action || location.href;
@@ -56,6 +56,18 @@
 			if (!confirmAction('Trang này muốn gửi biểu mẫu đến một trang ngoài:', action)) return;
 		}
 		return _submit.call(this, ...args);
+	});
+
+	// BLock eval debugger
+	const rawEval = window.eval;
+	window.eval = new Proxy(rawEval, {
+		apply(target, thisArg, args) {
+			if (args.length && typeof args[0] === 'string' && args[0].includes('debugger')) {
+				console.log('> [Ad Block] Blocked eval with debugger');
+				return;
+			}
+			return Reflect.apply(target, thisArg, args);
+		},
 	});
 
 	// Chặn click vào link ngoài origin

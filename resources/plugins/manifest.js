@@ -1,3 +1,3 @@
 export default {
-	'luluvdoo.com': 'luluvdoo',
+	'luluvdoo': 'luluvdoo',
 };
