@@ -20,7 +20,9 @@
 	const _open = window.open;
 	lockFn(window, 'open', function (url, ...args) {
 		if (!userInitiated() || isExternalURL(url)) {
-			if (!confirmAction('Trang này muốn mở một tab mới ngoài origin:', url)) return null;
+			if (!confirmAction('Trang này muốn mở một tab mới ngoài origin:', url)) {
+				return null;
+			}
 		}
 		return _open.call(this, url, ...args);
 	});

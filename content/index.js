@@ -15,7 +15,7 @@
  * @param {string} url
  * @param {'text/javascript' | 'module'} type
  */
-function injectScript(url, type = 'module') {
+function injectScript(url, type = 'text/javascript') {
 	url += url.endsWith('.js') ? '' : '.js';
 	const script = document.createElement('script');
 	script.src = chrome.runtime.getURL(url);

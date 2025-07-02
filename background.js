@@ -13,10 +13,14 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
 
 		const match = matchEntry[1];
 		const plugin = match.resource;
-		const ruleMode = (match.mode || 'black-list').toLowerCase();
+		const ruleMode = match.mode;
 
-		if (ruleMode === 'none') {
-			console.log(`> [Ad Block] Mode is 'none', skip applying rules for ${hostname}`);
+		if (
+			ruleMode === 'default' ||
+			!ruleMode ||
+			(ruleMode !== 'black-list' && ruleMode !== 'white-list')
+		) {
+			console.log(`> [Ad Block] skip applying rules for ${hostname}`);
 			return;
 		}
 
