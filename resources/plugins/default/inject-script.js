@@ -58,7 +58,7 @@
 		return _submit.call(this, ...args);
 	});
 
-	// BLock eval debugger
+	// Block eval debugger
 	const rawEval = window.eval;
 	window.eval = new Proxy(rawEval, {
 		apply(target, thisArg, args) {
@@ -70,7 +70,7 @@
 		},
 	});
 
-	// Chặn click vào link ngoài origin
+	// Block click link different origin
 	document.addEventListener(
 		'click',
 		(e) => {

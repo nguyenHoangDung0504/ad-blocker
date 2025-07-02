@@ -1,3 +1,6 @@
+/**
+ * @type {Record<string, { resource: string, mode: 'white-list' | 'black-list' | 'none' }>}
+ */
 export default {
-	'luluvdoo': 'luluvdoo',
+	'luluvdoo': { resource: 'luluvdoo', mode: 'white-list' },
 };

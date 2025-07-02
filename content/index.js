@@ -2,10 +2,13 @@
 	injectScript('/resources/plugins/default/inject-script');
 
 	const plugin = await getPlugin(location.href);
+	console.log('> [Ad Block] Request plugin result:', plugin);
 	if (plugin) {
 		console.log('> [Ad Block] Using plugin:', plugin);
 		injectScript(`/resources/plugins/${plugin}/inject-script`);
+		return;
 	}
+	console.log('> [Ad Block] There is no plugin to support this page');
 })();
 
 /**
@@ -28,7 +31,7 @@ function injectScript(url, type = 'module') {
 function getPlugin(url) {
 	return new Promise((resolve) => {
 		chrome.runtime.sendMessage({ type: 'get-plugin-resource', url }, (res) => {
-			resolve(res?.folder || null);
+			resolve(res?.resource || null);
 		});
 	});
 }

@@ -1,0 +1,5 @@
+*://a.lulucdn.com/js/jdadbl.js
+*://storage.lulu-row1.com/2jiGc77.js
+*://luluvdoo.com/js/jquery.cookie.js
+*://luluvdoo.com/js/jquery.min.js
+*://luluvdoo.com/player/*/*

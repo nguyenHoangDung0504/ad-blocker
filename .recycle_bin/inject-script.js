@@ -1,6 +1,8 @@
 (function () {
 	const nodeRawRemoveChild = Node.prototype.removeChild;
 	const elementRawRemoveChild = Element.prototype.removeChild;
+	const rawAppendChild = Node.prototype.appendChild;
+	const rawCreateElement = Document.prototype.createElement;
 
 	// Define and block variables
 	'cRAds, justDetectAdblock, showADBOverlay'.split(',').forEach((blockVar) => {
@@ -51,6 +53,19 @@
 		childList: true,
 		subtree: true,
 	});
+
+	// Block append iframe and event div
+	// Element.prototype.appendChild = function (...args) {
+	// 	let el = args[0];
+	// 	if (
+	// 		el instanceof HTMLElement &&
+	// 		el.tagName === 'DIV' &&
+	// 		(['absolute', 'fixed'].includes(el.style.position) || el.style.display == 'none')
+	// 	) {
+	// 		return;
+	// 	}
+	// 	return rawAppendChild.apply(this, args);
+	// };
 
 	/**@param {Element | Node} eon  */
 	function destroyElement(eon) {
