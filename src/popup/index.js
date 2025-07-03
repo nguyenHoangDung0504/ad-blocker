@@ -40,7 +40,7 @@ async function saveRules() {
 
 	chrome.storage.local.set({ [STORAGE_KEY]: urls }, () => {
 		chrome.declarativeNetRequest.getDynamicRules((existingRules) => {
-			const allRuleIds = existingRules.map((r) => r.id);
+			const allRuleIds = existingRules.map((r) => r.id < 1_000_000);
 
 			chrome.declarativeNetRequest.updateDynamicRules({
 				removeRuleIds: allRuleIds,
