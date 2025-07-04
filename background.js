@@ -163,12 +163,12 @@ async function initDefaultRules() {
 	});
 
 	// Debug
-	// setInterval(async () => {
-	// 	console.log(
-	// 		`> [Ad Block] Current dynamic net request rules:`,
-	// 		await chrome.declarativeNetRequest.getDynamicRules()
-	// 	);
-	// }, 5000);
+	setInterval(async () => {
+		console.log(
+			`> [Ad Block] Current dynamic net request rules:`,
+			await chrome.declarativeNetRequest.getDynamicRules()
+		);
+	}, 5000);
 }
 
 /**

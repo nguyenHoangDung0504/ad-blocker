@@ -72,11 +72,20 @@
 		},
 	});
 
+	Object.defineProperty(Event.prototype, 'preventDefault', {
+		writable: false,
+		configurable: false,
+		value: Event.prototype.preventDefault,
+	});
+
 	// Block click link different origin
 	document.addEventListener(
 		'click',
 		(e) => {
-			if (!e.isTrusted) return e.preventDefault();
+			if (!e.isTrusted) {
+				console.log('> [Ad Block] Blocked untrusted click event:', e);
+				return e.preventDefault();
+			}
 
 			const anchor = e.target.closest?.('a[href]');
 			if (!anchor) return;
