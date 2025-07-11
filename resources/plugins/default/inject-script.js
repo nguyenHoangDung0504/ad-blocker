@@ -16,6 +16,11 @@
 		'coccoc.com',
 	];
 
+	if (TRUSTED_DOMAINS.some((hostname) => location.href.includes(hostname))) {
+		console.log('> [Ad Block] Ignore protect script on trusted domains');
+		return;
+	}
+
 	// Overwrite window.open
 	const _open = window.open;
 	lockFn(window, 'open', function (url, ...args) {
