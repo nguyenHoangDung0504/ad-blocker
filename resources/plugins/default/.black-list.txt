@@ -19,7 +19,6 @@
 *://*.magsrv.com/*
 *://*.pemsrv.com/*
 *://qccoccocmedia.vn/*
-*://google.*.*/ads/*
 *://cdn.tsyndicate.com/*
 *://blurbreimbursetrombone.com/*
 *://hologydenoughta.info/*
@@ -57,8 +56,6 @@
 *://sv368.poker/*
 *://melimde.com/*
 *://*.doubleclick.net/*
-*://*.googleadservices.com/*
-*://*.googlesyndication.com/*
 *://*.adsafeprotected.com/*
 *://*.adnxs.com/*
 *://*.amazon-adsystem.com/*
@@ -171,3 +168,4 @@
 *://img.doppiocdn.com/*
 *://njavtv.com/pop
 *://coccoc.com/webhp/*
+*://www.youtube.com/pagead/*
