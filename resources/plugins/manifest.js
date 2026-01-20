@@ -3,5 +3,7 @@
  */
 export default {
 	'luluvdoo': { resource: 'luluvdoo', mode: 'white-list' },
+	'lulu.st': { resource: 'luluvdoo', mode: 'black-list' },
 	'jilliandescribe': { resource: 'jilliandescribe', mode: 'black-list' },
+	'truyenqq': { resource: 'truyenqq', mode: 'white-list' },
 };
