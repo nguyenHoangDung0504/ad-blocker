@@ -1,14 +1,27 @@
-let intervalID = setInterval(cleanIframe, 2000);
+window.addEventListener('load', () => {
+	if (cleanIframe()) return;
+	const intervalID = setInterval(() => cleanIframe(() => clearInterval(intervalID)), 1000);
+	document
+		.querySelectorAll('script')
+		.forEach(
+			(node) => node.textContent.includes('https://www.eporner.com/getadb/') && node.remove(),
+		);
+});
 
-function cleanIframe() {
-	const iframes = document.querySelectorAll('iframe');
+/**
+ * @param {() => any} [onSuccess]
+ */
+function cleanIframe(onSuccess) {
+	const adsURLs = document.querySelectorAll('iframe');
+	if (!adsURLs.length) return false;
 
-	if (iframes.length) {
-		iframes.forEach((node) => {
-			if (node.src) return;
-			console.log('Cleaned:', node);
+	adsURLs.forEach((node) => {
+		if (!node.src) {
+			// console.log('Cleaned AD iframe:', node);
 			node.remove();
-		});
-		clearInterval(intervalID);
-	}
+		}
+	});
+
+	onSuccess?.();
+	return true;
 }
