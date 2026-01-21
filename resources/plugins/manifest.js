@@ -7,4 +7,5 @@ export default {
 	'jilliandescribe': { resource: 'jilliandescribe', mode: 'black-list' },
 	'truyenqq': { resource: 'truyenqq', mode: 'white-list' },
 	'eporner': { resource: 'eporner', mode: 'black-list' },
+	'japaneseasmr': { resource: 'japaneseasmr', mode: 'default' }
 };
