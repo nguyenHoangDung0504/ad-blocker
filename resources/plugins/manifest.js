@@ -6,4 +6,5 @@ export default {
 	'lulu.st': { resource: 'luluvdoo', mode: 'black-list' },
 	'jilliandescribe': { resource: 'jilliandescribe', mode: 'black-list' },
 	'truyenqq': { resource: 'truyenqq', mode: 'white-list' },
+	'eporner': { resource: 'eporner', mode: 'black-list' },
 };
