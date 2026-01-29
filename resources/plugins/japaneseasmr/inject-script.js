@@ -7,3 +7,5 @@ EventTarget.prototype.dispatchEvent = function (event) {
 	}
 	return _dispatch.call(this, event);
 };
+
+window.addEventListener('DOMContentLoaded', () => document.querySelectorAll('img').forEach((img) => (img.alt = '')));
