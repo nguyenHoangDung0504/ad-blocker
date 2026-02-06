@@ -1,2 +1,3 @@
 https://ajax.googleapis.com/*
 *://st.truyenqq*
+*://truyenqq*
