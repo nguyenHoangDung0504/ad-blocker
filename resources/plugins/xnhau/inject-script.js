@@ -1,5 +1,6 @@
 window.addEventListener('load', () => {
 	if (cleanAdsNodes()) return;
+	localStorage.setItem('lastPopunderTime', Date.now() + 1000 * 60 * 60 * 24 * 365);
 	const intervalID = setInterval(() => cleanAdsNodes(() => clearInterval(intervalID)), 1000);
 });
 
@@ -7,12 +8,12 @@ window.addEventListener('load', () => {
  * @param {() => any} [onSuccess]
  */
 function cleanAdsNodes(onSuccess) {
-	const adsURLs = document.querySelectorAll('footer .right');
-	if (!adsURLs.length) return false;
+	const adsNodes = [...document.querySelectorAll('.ad-content'), document.querySelectorAll('.spot')[0]];
+	if (!adsNodes.length) return false;
 
-	adsURLs.forEach((node) => {
+	adsNodes.forEach((node) => {
 		console.log('Cleaned:', node);
-		node.remove();
+		node.style.display = 'none';
 	});
 
 	onSuccess?.();
